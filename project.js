@@ -8,6 +8,7 @@
 
 const prompt = require("prompt-sync")();
 
+// #1
 const deposit = () => {
   while (true) {
     const depositAmount = prompt("Enter a deposit amount: ");
@@ -21,4 +22,19 @@ const deposit = () => {
   }
 };
 
+// #2
+const getNumberOfLines = () => {
+  while (true) {
+    const lines = prompt("Enter the number of lines to bet on (1-3):  ");
+    const numberOfLines = parseFloat(lines); // parseFloat takes a string and turns it into a number
+
+    if (isNaN(numberOfLines) || numberOfLines <= 0 || numberOfLines > 3) {
+      console.log("Invalid number of lines. Try again.");
+    } else {
+      return numberOfLines;
+    }
+  }
+};
+
 const depositAmount = deposit();
+const numberOfLines = getNumberOfLines();
